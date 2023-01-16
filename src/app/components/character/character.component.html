@@ -1,0 +1,24 @@
+<button (click)="uiservice.addACharacter()">Create a character</button>
+<p>Here are your Characters!</p>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Hit Points</th>
+        <th>Armor Rating</th>
+        <th>Remove</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of uiservice.returnCharacters()">
+            <td>{{user.name}}</td>
+            <td>{{user.type}}</td>
+            <td>{{user.description}}</td>
+            <td>{{user.hitPoints}}</td>
+            <td>{{user.armorPoints}}</td>
+            <td><button (click)="uiservice.deleteCharacter(user.id)" ><mat-icon> delete</mat-icon></button></td>
+        </tr>
+    </tbody>
+</table>
